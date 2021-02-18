@@ -1,0 +1,70 @@
+---
+title: "Week 3"
+author: "Meng"
+date: "04/02/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Modelling people 
+```{r}
+f <- function(c) {sqrt(c)*sqrt(24-c)}
+
+optimise(f, c(0,24),maximum = T)
+
+plot(f(0:24), type="l")
+
+```
+
+
+```{r max profits}
+f <- function(q) {q*(50-q)}
+
+optimise(f, c(0, 50), maximum = T)
+
+plot(f(0:50), type="l")
+```
+
+```{r best line of fit}
+f <- function(m,b)  21*m**2 + 14*m*b + 3*b**2 -94*m -30*b + 81
+
+m <- seq(-10, 10, length = 200)
+b <- seq(-10, 10, length = 200)
+
+z <- outer(m,b,f)
+
+persp(m,b,z, theta = -20, phi = 15, ticktype = "detailed") #theta and phi are for the angles of the graph
+
+
+f1 <- function()
+
+optimise(f, c(-100,100))
+
+
+```
+
+
+```{r exercise 7}
+x <- c(2,4,7,3,1)
+y <- c(45,80,95,55,30)
+y_bar <- mean(y)
+f_x <- 20*x
+
+1- sum((y-f_x)**2)/sum((y-y_bar)**2)
+
+
+```
+```{r exercise 8}
+
+x <- c(1,25,46,76,140)
+y <- c(5,15,22,32,77)
+y_bar <- mean(y)
+f_x <- 0.5*x
+
+1- sum((y-f_x)**2)/sum((y-y_bar)**2)
+
+```
+
